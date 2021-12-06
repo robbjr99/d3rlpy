@@ -1,16 +1,41 @@
 <p align="center"><img align="center" width="300px" src="assets/logo.png"></p>
 
-# d3rlpy: An offline deep reinforcement learning library
+# AIPI 530 Final Project: using the d3rlpy library for offline deep reinforcement learning
 
-![test](https://github.com/takuseno/d3rlpy/workflows/test/badge.svg)
-![build](https://github.com/takuseno/d3rlpy/workflows/build/badge.svg)
-[![Documentation Status](https://readthedocs.org/projects/d3rlpy/badge/?version=latest)](https://d3rlpy.readthedocs.io/en/latest/?badge=latest)
-[![codecov](https://codecov.io/gh/takuseno/d3rlpy/branch/master/graph/badge.svg?token=AQ02USKN6Y)](https://codecov.io/gh/takuseno/d3rlpy)
-[![Maintainability](https://api.codeclimate.com/v1/badges/c9162eb736d0b0f612d8/maintainability)](https://codeclimate.com/github/takuseno/d3rlpy/maintainability)
-[![Gitter](https://img.shields.io/gitter/room/d3rlpy/d3rlpy)](https://gitter.im/d3rlpy/d3rlpy)
-![MIT](https://img.shields.io/badge/license-MIT-blue)
+> ### _Rob Baldoni
 
-d3rlpy is an offline deep reinforcement learning library for practitioners and researchers.
+d3rlpy is an offline deep reinforcement learning library for practitioners and researchers. We used
+this library to build a pipeline for offline RL and then plot key results from training.
+
+
+### Installation
+
+---
+1. Clone the repository: `git clone https://github.com/robbjr99/d3rlpy`
+2. Install requirements: `pip install Cython numpy` & `pip install -e`
+3. Install **pybullet**: `pip install git+https://github.com/takuseno/d4rl-pybullet`
+4. Run **`cql_driver.py`**
+   * Dataset in source code is `hopper-bullet-mixed-v0`
+   * The script takes three command line arguments with respect to training. epochs_cql and epochs_fqe
+     take integer quantity specifying the number of training iterations. log_name takes a string
+     specifying the unique name of the session to ensure results are not overwritten after each run.
+     Arguments as follows: `python cql_driver.py --epochs_cql 10 --epochs_fqe 10 --log_name '121'`
+5. **Logs:**
+   * CQL Estimated Q values vs training steps: `d3rlpy_logs/CQL_###/estimated_q_values.csv`
+   * CQL True Q values vs training steps: `d3rlpy_logs/CQL_###/trueQ.csv`
+   * Average reward vs training steps: `d3rlpy_logs/CQL_###/environment.csv`
+   * FQE Estimated Q values vs training steps: `d3rlpy_logs/CQL_###/estimated_q_values.csv`
+   * FQE True Q values vs training steps: `d3rlpy_logs/CQL_###/trueQ.csv`
+
+# True Q Scoring
+I created a scorer to compute true q values in `scorer.py` (`true_q_scorer`).
+
+# Example Case
+
+In this project a demo case with results was provided in which I trained CQL on PyBullet
+and trained OPE/FQE to evaluate the policy. In order to generate these results
+please run the following script:
+* `cql_driver.py`
 
 ```py
 import d3rlpy
@@ -33,7 +58,7 @@ actions = sac.predict(x)
 - Documentation: https://d3rlpy.readthedocs.io
 - Paper: https://arxiv.org/abs/2111.03788
 
-## key features
+## Advantages of d3rlpy
 
 ### :zap: Most Practical RL Library Ever
 - **offline RL**: d3rlpy supports state-of-the-art offline RL algorithms. Offline RL is extremely powerful when the online interaction is not feasible during training (e.g. robotics, medical).
