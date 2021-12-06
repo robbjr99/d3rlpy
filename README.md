@@ -40,10 +40,10 @@ please run the following script:
 # Training Results from Example Case
 
 CQL training results:
-![CQL_subplots.png]
+!(CQL_subplots.png)
 
 FQE training results:
-![FQE_plot.png]
+!(FQE_plot.png)
 
 ```py
 import d3rlpy
