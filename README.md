@@ -2,7 +2,7 @@
 
 # AIPI 530 Final Project: using the d3rlpy library for offline deep reinforcement learning
 
-> ### _Rob Baldoni
+> ### Rob Baldoni
 
 d3rlpy is an offline deep reinforcement learning library for practitioners and researchers. We used
 this library to build a pipeline for offline RL and then plot key results from training.
@@ -36,6 +36,14 @@ In this project a demo case with results was provided in which I trained CQL on 
 and trained OPE/FQE to evaluate the policy. In order to generate these results
 please run the following script:
 * `cql_driver.py`
+
+# Training Results from Example Case
+
+CQL training results:
+![CQL_subplots.png]
+
+FQE training results:
+![FQE_plot.png]
 
 ```py
 import d3rlpy
